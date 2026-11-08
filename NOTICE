@@ -1,0 +1,89 @@
+Logent Knowledge Work — 출처·변경·재배포 고지
+
+이 파일은 출처와 배포 범위를 설명하는 고지예요. 각 원본 라이선스의 조건을 바꾸거나, 외부 서비스·상표·데이터에 대한 권리를 새로 부여하지 않아요.
+
+1. 원본과 고정 기준
+
+원본 프로젝트: Knowledge Work Plugins
+원본 저장소: https://github.com/anthropics/knowledge-work-plugins
+Logent fork: https://github.com/logentworld/knowledge-work-plugins
+고정 upstream 원본 커밋: e050c2ec856373787143d7057663a6ebd1277df3
+커밋 링크: https://github.com/anthropics/knowledge-work-plugins/commit/e050c2ec856373787143d7057663a6ebd1277df3
+
+UPSTREAM_COMMIT은 위 해시를 기계가 읽을 수 있는 한 줄로 기록해요. 원본 README는 README.upstream.md에 수정 없이 보존해요. 루트 LICENSE, 도메인별 LICENSE, 스킬별 LICENSE.txt, 원본 저작권·출처 문구와 Git 이력을 유지해요. 확인한 원본 루트·도메인·partner-built 경로에는 별도의 NOTICE 파일이 없었어요. 이 NOTICE는 Logent fork에서 추가했어요.
+
+2. 루트 및 도메인 라이선스
+
+루트 LICENSE는 Apache License, Version 2.0 본문을 포함해요. 205~212행에는 표준 라이선스 본문 밖의 원본 텍스트가 덧붙어 있어요. 이를 임의로 삭제·교정·새 라이선스로 해석하지 않고 원문 그대로 보존해요. 표준 본문과 원본 후미 모두 수신자에게 전달해요.
+
+아래 도메인의 개별 LICENSE는 서로 바이트 단위로 같은 Apache-2.0 본문이에요.
+- bio-research/LICENSE
+- cowork-plugin-management/LICENSE
+- customer-support/LICENSE
+- data/LICENSE
+- enterprise-search/LICENSE
+- finance/LICENSE
+- legal/LICENSE
+- marketing/LICENSE
+- pdf-viewer/LICENSE
+- product-management/LICENSE
+- productivity/LICENSE
+- sales/LICENSE
+
+이 파일들과 partner-built/common-room/LICENSE의 SHA-256은
+cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30이에요.
+
+별도 도메인 LICENSE가 없는 design, engineering, human-resources, operations, small-business에는 저장소 루트 LICENSE를 함께 제공해요. 이 고지는 없는 개별 허가문이나 저작권자를 만들어 내지 않아요.
+
+bio-research/README.md는 스킬을 Apache-2.0으로 명시하고 MCP 서버는 각 저작자 조건을 따르도록 안내해요. 다음 5개 스킬은 LICENSE.txt를 따로 포함하므로 그 파일도 각각 유지해요.
+- bio-research/skills/instrument-data-to-allotrope/LICENSE.txt
+- bio-research/skills/nextflow-development/LICENSE.txt
+- bio-research/skills/scientific-problem-selection/LICENSE.txt
+- bio-research/skills/scvi-tools/LICENSE.txt
+- bio-research/skills/single-cell-rna-qc/LICENSE.txt
+
+위 LICENSE.txt는 모두 Apache-2.0 본문이고 SHA-256은
+7505b489cc8ad7f16ba08343184320f1583303cfacdb9121b9b756bc073df1ab이에요.
+
+Apache-2.0 제4조의 라이선스 사본·변경 고지·원본 귀속 고지 보존 요건을 따라요. 이 고지는 전문을 대체하지 않으므로 동봉한 각 LICENSE/ LICENSE.txt도 읽어 주세요.
+
+3. partner-built 개별 고지
+
+- partner-built/apollo/LICENSE: MIT License.
+  Copyright (c) 2025 Apollo.io
+- partner-built/brand-voice/LICENSE: MIT License.
+  Copyright (c) 2025 Tribe AI
+- partner-built/common-room/LICENSE: Apache License, Version 2.0.
+  원본에는 구체적인 별도 저작권자 선언 대신 표준 라이선스 부록의 예시 문구가 있어요. 이를 임의의 저작권 선언으로 바꾸지 않아요.
+- partner-built/slack/LICENSE: The MIT License (MIT).
+  Copyright (c) 2020- Slack Technologies, LLC
+- partner-built/zoom-plugin/LICENSE: MIT License.
+  Copyright (c) 2025 Zoom Video Communications, Inc.
+
+MIT의 저작권·허가·보증 부인 문구는 각 LICENSE 전체를 통해 그대로 전달해요. 해당 플러그인의 README, CONNECTORS, references, 예제, 하위 문서도 원본 경로에서 유지해요. 파트너 이름을 사용했다는 사실은 공식 Logent 지원·후원·상표 사용 허가를 의미하지 않아요.
+
+4. Logent에서 바꾼 부분
+
+- README.md를 한국어 Logent 안내로 다시 작성하고 README.upstream.md에 원본을 보존했어요.
+- logent-plugin/에 Plugin API 4.0.0용 어댑터를 추가했어요.
+- 도메인별 kw-<domain> 스킬과 knowledge_work 읽기 도구, /knowledge 명령으로 원본 목차와 경로를 제공해요. 원본 252개 스킬·15개 명령 문서를 각각 전역 등록하거나 원본 명령을 자동 실행하지 않아요.
+- knowledge_work_prepare는 명시 확인과 WRITE 권한 아래 보조 파일만 전개해요. 자동 의존성 설치·실행·권한 상승은 하지 않아요.
+- MCP는 HTTPS 수동 설정 제안만 제공해요. 원본 stdio 서버, npx, Claude/Cowork 전용 installer는 실행하지 않아요.
+- logent/ 빌드·서명·릴리스 도구와 CI를 추가했어요. 원본 디렉터리를 유일한 콘텐츠 원천으로 사용하며 생성 목차·자산·패키지는 build/ 아래에만 만들어요. 원본 스킬·엔진의 별도 vendored 사본을 커밋하지 않아요.
+- Android 패키지 안에서 숨김 경로 조각을 `dot-` 접두어로 바꾸고 목차에 원본 경로와 실제 자산 경로를 함께 기록해요. 원본 파일 내용과 사용자에게 제공하는 읽기·전개 경로는 바꾸지 않아요.
+- 이 NOTICE와 UPSTREAM_COMMIT, logent/README.md를 추가했어요.
+
+새 Logent 소스·문서의 추가/변경에는 저장소 루트 라이선스를 적용하고, 별도 원본 라이선스를 덮어쓰지 않아요. 원본 도메인 파일의 영어 내용은 보존하므로 새 한국어 안내와 구분해 주세요.
+
+5. 포함 범위와 재배포 불명 항목의 제외 기준
+
+포함: 저장소에 실제 존재하는 로컬 루트 17개 + partner-built 5개 도메인의 원본 1,273개 파일(문서, JSON, 텍스트 보조 스크립트, 개별 라이선스)을 유지해요. 루트 LICENSE와 marketplace 정의 및 이 고지도 배포 자산에 함께 전달해요. 확인한 로컬 콘텐츠에서 별도로 재배포를 금지하거나 조건이 불명확해 제외해야 할 바이너리는 발견하지 않았으며, 로컬 도메인 전체를 임의로 제외하지 않아요.
+
+제외/외부 범위:
+- marketplace 정의에 등록됐지만 이 저장소에 소스가 없는 외부 원격 101개는 참조 정보만 보존해요. 해당 원격 저장소를 fetch하거나 소스를 재배포하지 않아요. 각 원격의 라이선스·재배포 권한은 여기서 보증하지 않아요.
+- Zoom SDK/Qt 배포물, 과학 계산 패키지·모델·컨테이너, Nextflow/nf-core/SRA 실행 배포물, MCP 서버 구현과 외부 데이터베이스·문헌·계정 데이터는 포함하지 않아요. 원본 문서의 설치·사용법 예시가 제3자 배포물의 재배포 허가를 뜻하지 않아요.
+- 서비스 로고·상표·유료 콘텐츠·사용자 데이터·비밀키를 이식 과정에서 별도로 수집하거나 동봉하지 않아요. 권리가 확인되지 않은 외부 다운로드·벤더 바이너리를 추후 패키징하지 말아 주세요. 추가하려면 해당 권리와 고지 의무를 먼저 확인해야 해요.
+
+원본 nextflow-development/SKILL.md가 언급하는 nf-core(MIT), Nextflow(Apache-2.0), NCBI SRA Toolkit(Public Domain) 표기는 그 문서의 출처 안내이며, 이 패키지에 그 실행물을 동봉했다는 의미가 아니에요. 외부 MCP 서비스의 약관·계정·OAuth 권한·데이터 전송 승인은 사용자가 별도로 확인해야 해요.
+
+법무·재무·바이오·인사 등 원본의 전문 검토·승인·안전 제한은 그대로 유효해요. 문서 열람이나 보조 파일 전개만으로 실행 성공·Termux 호환성·법률적 적합성을 보증하지 않아요.

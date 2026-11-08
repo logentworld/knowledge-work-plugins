@@ -1,0 +1,9 @@
+/.gradle/
+/.kotlin/
+/build/
+**/build/
+/local.properties
+/api-src/
+__pycache__/
+*.pyc
+local.properties

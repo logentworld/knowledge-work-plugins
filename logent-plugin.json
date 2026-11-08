@@ -1,0 +1,9 @@
+{
+  "id": "com.sleepysoong.logent.knowledge-work",
+  "key": "logentworld:knowledge_work",
+  "name": "지식 업무",
+  "entry": "com.sleepysoong.logent.knowledgework.KnowledgeWorkPlugin",
+  "dependencies": [],
+  "apiMin": 4,
+  "apiMax": 4
+}
