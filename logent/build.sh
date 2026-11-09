@@ -6,19 +6,22 @@ cd "$(dirname "$0")/.."
 version="$(tr -d '[:space:]' < VERSION)"
 name="logent-knowledge-work-v$version"
 dist="$PWD/build/dist"
-mkdir -p build/keys
+mkdir -p "$dist"
+work="$(mktemp -d)"
+trap 'rm -rf "$work"' EXIT
 suffix=""
 key="${LOGENT_CONTENT_SIGNING_KEY_FILE:-}"
 if [[ -z "$key" ]]; then
     suffix="-ci"
-    key="$PWD/build/keys/ci-signing.pem"
+    key="$work/ci-signing.pem"
     umask 077
     openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out "$key"
-    public="$PWD/build/keys/ci-public.der"
+    public="$work/ci-public.der"
     openssl ec -in "$key" -pubout -outform DER -conv_form uncompressed -param_enc named_curve -out "$public" 2>/dev/null
     printf '%s\n' 'CI 임시 서명이라 앱에 설치할 수 없어요. 운영 키를 지정해 주세요.' > "$dist/INSTALL-NOTE.txt"
 else
-    public="$PWD/build/keys/content-public.der"
+    # 앱이 신뢰하는 공개키와 다른 키로 서명한 패키지는 게시 전에 거부해요.
+    public="$work/content-public.der"
     base64 --decode content-public-key.der.b64 > "$public"
     printf '%s\n' '운영 서명 키로 서명했어요. 앱에 설치할 수 있어요.' > "$dist/INSTALL-NOTE.txt"
 fi
